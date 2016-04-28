@@ -1,0 +1,82 @@
+<pre>
+<code>
+<textarea rows="100" cols="100" style="border:none;">
+
+1 - <exclusiveGateway id="sourceOrTargetRef433" name="Gateway" gatewayDirection="Converging" >
+2 -  <extensionElements>
+3 -    <activiti:executionListener class="org.prisma.rdl.runtime.bpmn.listener.BeginDoParallelListener" event="start" >
+4 -      <activiti:field name="currentADDRESS" stringValue="433" />
+5 -      <activiti:field name="varCondition" stringValue="condStatus440" />
+6 -    </activiti:executionListener>
+7 -  </extensionElements>
+8 - </exclusiveGateway>
+9 - <sequenceFlow id="flow433to434" sourceRef="sourceOrTargetRef433" targetRef="sourceOrTargetRef434" />
+10 - <parallelGateway id="sourceOrTargetRef434" name="Gateway" gatewayDirection="Diverging" />
+11 - <sequenceFlow id="flow434to435" sourceRef="sourceOrTargetRef434" targetRef="sourceOrTargetRef435" />
+12 - <sequenceFlow id="flow434to439" sourceRef="sourceOrTargetRef434" targetRef="sourceOrTargetRef439" />
+13 - <serviceTask id="sourceOrTargetRef435" name="BeginThread" activiti:class="org.prisma.rdl.runtime.bpmn.delegate.NoneDelegate" >
+14 -  <extensionElements>
+15 -      <activiti:field name="currentADDRESS" stringValue="435" />
+16 -  </extensionElements>
+17 - </serviceTask>
+18 - <sequenceFlow id="flow435to436" sourceRef="sourceOrTargetRef435" targetRef="sourceOrTargetRef436" />
+19 - <userTask id="sourceOrTargetRef436" name="ExternalTask" />
+20 - <sequenceFlow id="flow436to437" sourceRef="sourceOrTargetRef436" targetRef="sourceOrTargetRef437" />
+28 - <exclusiveGateway id="sourceOrTargetRef437" name="Gateway" gatewayDirection="Mixed" >
+29 -  <extensionElements>
+30 -    <activiti:executionListener class="org.prisma.rdl.runtime.bpmn.listener.IfDoParallelListener" event="start" >
+31 -      <activiti:field name="beginDoparallelAddress" stringValue="433" />
+33 -    </activiti:executionListener>
+34 -  </extensionElements>
+35 - </exclusiveGateway>
+36 - <sequenceFlow id="flowThen437to442" sourceRef="sourceOrTargetRef437" targetRef="sourceOrTargetRef442" >
+37 - 		<conditionExpression xsi:type="tFormalExpression" >${!condStatus440 and (numExecInstances433 == numCreatedInstances433)}</conditionExpression>
+38 - </sequenceFlow>
+39 - <sequenceFlow id="flowElse437to438" sourceRef="sourceOrTargetRef437" targetRef="sourceOrTargetRef438" >
+40 - 		<conditionExpression xsi:type="tFormalExpression" >${!(!condStatus440 and (numExecInstances433 == numCreatedInstances433))}</conditionExpression>
+41 - </sequenceFlow>
+42 - <endEvent id="sourceOrTargetRef438" />
+43 - <serviceTask id="sourceOrTargetRef439" name="BeginThread" activiti:class="org.prisma.rdl.runtime.bpmn.delegate.NoneDelegate" >
+44 -   <extensionElements>
+45 -      <activiti:field name="currentADDRESS" stringValue="439" />
+46 -  </extensionElements>
+47 - </serviceTask>
+48 - <sequenceFlow id="flow439to440" sourceRef="sourceOrTargetRef439" targetRef="sourceOrTargetRef440" />
+49 - <userTask id="sourceOrTargetRef440" name="EvalConditionBPMN" >
+50 - <documentation></documentation>
+51 -  <extensionElements>
+52 -    <activiti:formProperty required="true" type="string" name="Run the block again?"  id="condition" />
+53 -    <activiti:taskListener class="org.prisma.rdl.runtime.bpmn.listener.EvalConditionListener" event="complete" >
+54 -      <activiti:field name="currentADDRESS" stringValue="440" />
+55 -    </activiti:taskListener>
+56 -  </extensionElements>
+57 -  <potentialOwner>
+58 -    <resourceAssignmentExpression>
+59 -      <formalExpression>user(${initiator})</formalExpression>
+60 -    </resourceAssignmentExpression>
+61 -  </potentialOwner>
+62 - </userTask>
+63 - <sequenceFlow id="flow440to441" sourceRef="sourceOrTargetRef440" targetRef="sourceOrTargetRef441" />
+64 - <inclusiveGateway id="sourceOrTargetRef441" name="Gateway" gatewayDirection="Mixed" >
+65 -  <extensionElements>
+66 -    <activiti:executionListener class="org.prisma.rdl.runtime.bpmn.listener.EndDoParallelListener" event="start" >
+67 -      <activiti:field name="beginDoParallelAddress" stringValue="433" />
+68 -    </activiti:executionListener>
+69 -  </extensionElements>
+70 - </inclusiveGateway>
+71 - <sequenceFlow id="flow441to433" sourceRef="sourceOrTargetRef441" targetRef="sourceOrTargetRef433" >
+72 - 		<conditionExpression xsi:type="tFormalExpression" >${condStatus440}</conditionExpression>
+73 - </sequenceFlow>
+74 - <sequenceFlow id="flow441to442" sourceRef="sourceOrTargetRef441" targetRef="sourceOrTargetRef442" >
+75 - 		<conditionExpression xsi:type="tFormalExpression" >${!condStatus440}</conditionExpression>
+76 - </sequenceFlow>
+77 - <sequenceFlow id="flow441to437" sourceRef="sourceOrTargetRef441" targetRef="sourceOrTargetRef437" >
+78 -		<conditionExpression xsi:type="tFormalExpression" >${!condStatus440 and (numExecInstances433 == numCreatedInstances433)}</conditionExpression>
+79 - </sequenceFlow>
+80 - <inclusiveGateway id="sourceOrTargetRef442" name="Gateway" gatewayDirection="Converging" />
+81 - <sequenceFlow id="flow442to443" sourceRef="sourceOrTargetRef442" targetRef="sourceOrTargetRef443" />
+<!-- End Process -->
+82 - <endEvent id="sourceOrTargetRef443" />
+ </textarea>
+</code>
+</pre>

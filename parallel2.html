@@ -1,0 +1,96 @@
+<pre>
+<code>
+<textarea rows="100" cols="100" style="border:none;">
+
+1 -  <parallelGateway id="sourceOrTargetRef5" name="Gateway" gatewayDirection="Diverging" />
+2 - <sequenceFlow id="flow5to6" sourceRef="sourceOrTargetRef5" targetRef="sourceOrTargetRef6" />
+3 - <sequenceFlow id="flow5to11" sourceRef="sourceOrTargetRef5" targetRef="sourceOrTargetRef11" />
+4 - <serviceTask id="sourceOrTargetRef6" name="BeginThread" activiti:class="org.prisma.rdl.runtime.bpmn.delegate.NoneDelegate" >
+5 -  <extensionElements>
+6 -      <activiti:field name="currentADDRESS" stringValue="6" />
+7 -  </extensionElements>
+8 - </serviceTask>
+9 - <sequenceFlow id="flow6to7" sourceRef="sourceOrTargetRef6" targetRef="sourceOrTargetRef7" />
+10 - <serviceTask id="sourceOrTargetRef7" name="Declaration" activiti:class="org.prisma.rdl.runtime.bpmn.delegate.DeclarationDelegate" >
+11 -  <extensionElements>
+12 -      <activiti:field name="typeNAME" stringValue="VOID" />
+13 -      <activiti:field name="varNAME" stringValue="climaPortlet" />
+14 -  </extensionElements>
+15 - </serviceTask>
+16 - <sequenceFlow id="flow7to8" sourceRef="sourceOrTargetRef7" targetRef="sourceOrTargetRef8" />
+17 - <userTask id="sourceOrTargetRef8" name="ClassExtension" >
+18 - <documentation>"Comment"</documentation>
+19 -  <extensionElements>
+20 -    <activiti:formProperty required="true" type="string" name="Type the subsclass name"  id="subNAME" />
+21 -    <activiti:taskListener class="org.prisma.rdl.runtime.bpmn.listener.ClassExtensionListener" event="complete" >
+22 -      <activiti:field name="subPNAME" stringValue="packageA" />
+23 -      <activiti:field name="superNAME" stringValue="GenericPortlet" />
+24 -    </activiti:taskListener>
+25 -  </extensionElements>
+26 -  <potentialOwner>
+27 -    <resourceAssignmentExpression>
+28 -       <formalExpression>group(juniorAnalyst)</formalExpression>
+29 -    </resourceAssignmentExpression>
+30 -  </potentialOwner>
+31 - </userTask>
+32 - <sequenceFlow id="flow8to9" sourceRef="sourceOrTargetRef8" targetRef="sourceOrTargetRef9" />
+33 - <serviceTask id="sourceOrTargetRef9" name="Assignment" activiti:class="org.prisma.rdl.runtime.bpmn.delegate.AssignmentDelegate" >
+34 -  <extensionElements>
+35 -      <activiti:field name="varNAME" stringValue="climaPortlet" />
+36 -      <activiti:field name="expr" stringValue="$0000RDLTempVar" />
+37 -  </extensionElements>
+38 - </serviceTask>
+39 - <sequenceFlow id="flow9to10" sourceRef="sourceOrTargetRef9" targetRef="sourceOrTargetRef10" />
+40 - <serviceTask id="sourceOrTargetRef10" name="EndThread" activiti:class="org.prisma.rdl.runtime.bpmn.delegate.NoneDelegate" >
+41 -  <extensionElements>
+42 -      <activiti:field name="currentADDRESS" stringValue="10" />
+43 -  </extensionElements>
+44 - </serviceTask>
+45 - <sequenceFlow id="flow10to16" sourceRef="sourceOrTargetRef10" targetRef="sourceOrTargetRef16" />
+46 - <serviceTask id="sourceOrTargetRef11" name="BeginThread" activiti:class="org.prisma.rdl.runtime.bpmn.delegate.NoneDelegate" >
+47 -  <extensionElements>
+48 -      <activiti:field name="currentADDRESS" stringValue="11" />
+49 -  </extensionElements>
+50 - </serviceTask>
+51 - <sequenceFlow id="flow11to12" sourceRef="sourceOrTargetRef11" targetRef="sourceOrTargetRef12" />
+52 - <serviceTask id="sourceOrTargetRef12" name="Declaration" activiti:class="org.prisma.rdl.runtime.bpmn.delegate.DeclarationDelegate" >
+53 -  <extensionElements>
+54 -      <activiti:field name="typeNAME" stringValue="VOID" />
+55 -      <activiti:field name="varNAME" stringValue="exchangePortlet" />
+56 -  </extensionElements>
+57 - </serviceTask>
+58 - <sequenceFlow id="flow12to13" sourceRef="sourceOrTargetRef12" targetRef="sourceOrTargetRef13" />
+59 - <userTask id="sourceOrTargetRef13" name="ClassExtension" >
+60 - <documentation>"Comment"</documentation>
+61 -  <extensionElements>
+62 -    <activiti:formProperty required="true" type="string" name="Type the subsclass name"  id="subNAME" />
+63 -    <activiti:taskListener class="org.prisma.rdl.runtime.bpmn.listener.ClassExtensionListener" event="complete" >
+64 -      <activiti:field name="subPNAME" stringValue="packageA" />
+65 -      <activiti:field name="superNAME" stringValue="GenericPortlet" />
+66 -    </activiti:taskListener>
+67 -  </extensionElements>
+68 -  <potentialOwner>
+69 -    <resourceAssignmentExpression>
+70 -      <formalExpression>group(seniorAnalyst)</formalExpression>
+71 -    </resourceAssignmentExpression>
+72 -  </potentialOwner>
+73 - </userTask>
+74 - <sequenceFlow id="flow13to14" sourceRef="sourceOrTargetRef13" targetRef="sourceOrTargetRef14" />
+75 - <serviceTask id="sourceOrTargetRef14" name="Assignment" activiti:class="org.prisma.rdl.runtime.bpmn.delegate.AssignmentDelegate" >
+76 -  <extensionElements>
+77 -      <activiti:field name="varNAME" stringValue="exchangePortlet" />
+78 -      <activiti:field name="expr" stringValue="$0000RDLTempVar" />
+79 -  </extensionElements>
+80 - </serviceTask>
+81 - <sequenceFlow id="flow14to15" sourceRef="sourceOrTargetRef14" targetRef="sourceOrTargetRef15" />
+82 - <serviceTask id="sourceOrTargetRef15" name="EndThread" activiti:class="org.prisma.rdl.runtime.bpmn.delegate.NoneDelegate" >
+83 -  <extensionElements>
+84 -      <activiti:field name="currentADDRESS" stringValue="15" />
+85 -  </extensionElements>
+86 - </serviceTask>
+87 - <sequenceFlow id="flow15to16" sourceRef="sourceOrTargetRef15" targetRef="sourceOrTargetRef16" />
+88 -  <parallelGateway id="sourceOrTargetRef16" name="Gateway" gatewayDirection="Converging" />
+89 -  <sequenceFlow id="flow16to17" sourceRef="sourceOrTargetRef16" targetRef="sourceOrTargetRef17" />
+ </textarea>
+</code>
+</pre>

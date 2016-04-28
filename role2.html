@@ -1,0 +1,23 @@
+<pre>
+<code>
+<textarea rows="100" cols="100" style="border:none;">
+<userTask id="sourceOrTargetRef3" name="NewPackage" >
+<documentation>"Follow the pattern of package names."</documentation>
+<extensionElements>
+    <activiti:formProperty required="true" type="string"
+                    name="Type the Package Name" id="packageNAME" />
+<activiti:taskListener 
+class="org.prisma.rdl.runtime.bpmn.listener.NewPackageListener"
+       event="complete" >
+<activiti:field name="containerNAME" stringValue="appmodel" />
+</activiti:taskListener>
+</extensionElements>
+<potentialOwner>
+   <resourceAssignmentExpression>
+      <formalExpression>group(architect)</formalExpression>
+   </resourceAssignmentExpression>
+</potentialOwner>
+</userTask>
+ </textarea>
+</code>
+</pre>
